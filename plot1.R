@@ -13,7 +13,9 @@
 source("read_data.R")
 data <- read_data()
 
-png(filename = "plot1.png",             # Output filename is "plot1.png"
+outFileName <- "plot1.png"
+
+png(filename = outFileName,             # Output filename is "plot1.png"
     width = 480, height = 480,          # Size is 480x480 pixels
     #bg = "transparent"                  # Background is transparent, for submission
     bg = "white"                        # Background is white, for testing
@@ -28,7 +30,7 @@ with(data,
         ylab="Frequency"))
 
 # Close it out and write the file
-dev.off()
+ignore <- dev.off()                     # Capture the output to shut it up
 
 # Howdy
-print("Hello, World!")
+print(paste0("Plot 1 written to ", outFileName))
