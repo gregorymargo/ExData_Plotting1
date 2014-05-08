@@ -31,11 +31,11 @@ read_data <- function() {
     # Yes I know we don't need all of it.
     # Leave that optimization until later.
     #
-    # Add options so strings are not considered factors.
+    # Add options so strings are not considered factors,
     # and "?" and "" are interpreted as NA.
     entireFile <- read.csv2(dataFile, stringsAsFactors=FALSE, na.strings=c("?", ""))
 
-    # Convert the "Date" column into a usable value.
+    # Convert the "Date" column into a usable value (as "Date_").
     entireFile[, "Date"] <- as.Date(entireFile[, "Date"], format="%d/%m/%Y")
 
     # Isolate a specific range of Dates
@@ -53,7 +53,11 @@ read_data <- function() {
         data[, column] <- as.numeric(data[, column])
     }
 
-    # Return the data-limited and massaged date to the caller.
+    # Massage the 'Date'/'Time' into a 'TimeStamp'
+    data[, "TimeStamp"] <- as.POSIXct(paste(data[, "Date"], data[, "Time"]),
+        format = "%Y-%m-%d %H:%M:%S")
+
+    # Return the date-limited, massaged data to the caller.
     # There are 2880 entries in the specific date range.
     return(data)
 }
