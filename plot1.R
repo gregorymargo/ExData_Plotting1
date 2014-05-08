@@ -11,8 +11,10 @@ plot1 <- function(outFileName) {
 
     # Use common data reading function between plot?.R files.
     # See "read_data.R" for this common code.
-    source("read_data.R")
-    dat <<- read_data()    # Push data up into enclosing environment for debug purposes
+    if (!exists("dat")) {
+        source("read_data.R")
+        dat <<- read_data()    # Push data up into enclosing environment for debug purposes
+    }
 
     png(filename = outFileName,             # Specify output filename
         width = global_dim,
