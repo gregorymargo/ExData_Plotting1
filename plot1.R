@@ -23,7 +23,7 @@ plot1 <- function(outFileName) {
     with(dat,
         hist(Global_active_power,
             main="Global Active Power",
-            col="#FF2500",
+            col="#FF2500",                              # Almost "red" but not quite
             xlab="Global Active Power (kilowatts)",
             ylab="Frequency"))
 

@@ -21,7 +21,9 @@ plot3 <- function(outFileName) {
 
     # Some helpful variables.
     meters <- c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3")
-    colors <- c("black", "red", "blue")
+    colors <- c("black",
+                "#FF2500",      # Almost "red" but not quite
+                "#0433FF")      # Almost "blue" but not quite
 
     # Find the scale that the three Sub_metering_? values will generate
     min_y <- min(dat[, meters])
