@@ -14,12 +14,10 @@ plot3 <- function(outFileName) {
     source("read_data.R")
     dat <<- read_data()    # Push data up into enclosing environment for debug purposes
 
-
     png(filename = outFileName,             # Specify output filename
-        width = 480, height = 480,          # Size is 480x480 pixels
-        #bg = "transparent"                  # Background is transparent, for submission
-        bg = "white"                        # Background is white, for testing
-        )
+        width = global_dim,
+        height = global_dim,                # Size is 480x480 pixels for submission
+        bg = global_bg)                     # Background is transparent for submission
 
     # Some helpful variables.
     meters <- c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3")
@@ -65,6 +63,8 @@ plot3 <- function(outFileName) {
     # Close it out and write the file
     ignore <- dev.off()                     # Capture the output to shut it up
 }
+
+source("globals.R")     # Common globals
 
 outFileName <- "plot3.png"
 timer <- system.time(plot3(outFileName))
