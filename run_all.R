@@ -9,7 +9,7 @@
 #
 # Generate all images
 
-suppressWarnings(file.remove(c("plot1.png", "plot2.png", "plot3.png", "plot4.png")))
+ignore <- suppressWarnings(file.remove(c("plot1.png", "plot2.png", "plot3.png", "plot4.png")))
 
 source("plot1.R")
 source("plot2.R")
