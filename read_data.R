@@ -5,7 +5,7 @@
 # Gregory Margo
 #
 # Exploratory Data Analysis
-# Course Project 1, Plot 1-5
+# Course Project 1, Plot 1-4
 # (Common code to all Plot N functions)
 
 
@@ -35,10 +35,10 @@ read_data <- function() {
     # and "?" and "" are interpreted as NA.
     entireFile <- read.csv2(dataFile, stringsAsFactors=FALSE, na.strings=c("?", ""))
 
-    # Convert the "Date" column into a usable value (as "Date_").
+    # Convert the "Date" column into a usable value.
     entireFile[, "Date"] <- as.Date(entireFile[, "Date"], format="%d/%m/%Y")
 
-    # Isolate a specific range of Dates
+    # Isolate a specific range of Dates.
     startDate = as.Date("2007-02-01")
     endDate   = as.Date("2007-02-02")
 
@@ -53,7 +53,7 @@ read_data <- function() {
         data[, column] <- as.numeric(data[, column])
     }
 
-    # Massage the 'Date'/'Time' into a 'TimeStamp'
+    # Massage the 'Date'/'Time' into a 'TimeStamp'.
     data[, "TimeStamp"] <- as.POSIXct(paste(data[, "Date"], data[, "Time"]),
         format = "%Y-%m-%d %H:%M:%S")
 

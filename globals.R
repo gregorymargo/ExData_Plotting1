@@ -5,7 +5,7 @@
 # Gregory Margo
 #
 # Exploratory Data Analysis
-# Course Project 1, Plot 1-5
+# Course Project 1, Plot 1-4
 # (Common code to all Plot N functions)
 
 # Global variables use for testing.
